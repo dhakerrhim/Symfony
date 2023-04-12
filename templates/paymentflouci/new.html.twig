@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Paymentflouci{% endblock %}
+
+{% block body %}
+    <h1>Create new Paymentflouci</h1>
+
+    {{ include('paymentflouci/_form.html.twig') }}
+
+    <a href="{{ path('app_paymentflouci_index') }}">back to list</a>
+{% endblock %}

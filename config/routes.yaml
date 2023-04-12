@@ -1,0 +1,23 @@
+controllers:
+    resource: ../src/Controller/
+    type: annotation
+    
+    
+app_vehicule_index:
+    path: /vehicule
+    controller: App\Controller\VehiculeController::index
+    methods: [GET]
+
+app_vehicule_edit:
+    path: '/vehicule/{id}/edit'
+    controller: App\Controller\VehiculeController::edit
+homepage:
+    path: /home
+    controller: App\Controller\FrontendController::index
+   
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
+
+
+    

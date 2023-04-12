@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Paymentflouci{% endblock %}
+
+{% block body %}
+    <h1>Edit Paymentflouci</h1>
+
+    {{ include('paymentflouci/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_paymentflouci_index') }}">back to list</a>
+
+    {{ include('paymentflouci/_delete_form.html.twig') }}
+{% endblock %}
