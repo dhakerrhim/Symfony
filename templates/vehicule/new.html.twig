@@ -1,0 +1,184 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create Vehicule{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Create Vehicule</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="{{ path('app_vehicule_new') }}" enctype="multipart/form-data">
+                            {{ form_start(form) }}
+                            <div class="form-group">
+                                <label for="{{ form.marque.vars.id }}">Vehicule Marque</label>
+                                {{ form_widget(form.marque, {'attr': {'class': 'form-control'}, 'required': false}) }}
+                                {% if form_errors(form.marque) %}
+                                    <div class="alert alert-danger">{{ form_errors(form.marque) }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form.matricule.vars.id }}">Vehicule Matricule</label>
+                                {{ form_widget(form.matricule, {'attr': {'class': 'form-control'}, 'required': false}) }}
+                                {% if form_errors(form.matricule) %}
+                                    <div class="alert alert-danger">{{ form_errors(form.matricule) }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form.couleur.vars.id }}">Vehicule Couleur</label>
+                                <div class="form-group m-0">
+														<p class="mb-1 tx-semibold">Select Color</p>
+														<div class="d-flex" id="color-checkboxes">
+															<div class="">
+																<label class="colorinput">
+																	<input name="color" type="checkbox" value="azure" class="colorinput-input" onchange="updateCouleurValue()" checked />
+																	<span class="colorinput-color bg-primary"></span>
+																</label>
+															</div>
+															<div class="">
+																<label class="colorinput">
+																	<input name="color" type="checkbox" value="indigo" class="colorinput-input"  />
+																	<span class="colorinput-color bg-indigo"></span>
+																</label>
+															</div>
+															<div class="">
+																<label class="colorinput">
+																	<input name="color" type="checkbox" value="purple" class="colorinput-input" />
+																	<span class="colorinput-color bg-purple"></span>
+																</label>
+															</div>
+															<div class="">
+																<label class="colorinput">
+																	<input name="color" type="checkbox" value="pink" class="colorinput-input" />
+																	<span class="colorinput-color bg-pink"></span>
+																</label>
+															</div>
+															<div class="">
+																<label class="colorinput">
+																	<input name="color" type="checkbox" value="red" class="colorinput-input" />
+																	<span class="colorinput-color bg-danger"></span>
+																</label>
+															</div>
+															<div class="">
+																<label class="colorinput">
+																	<input name="color" type="checkbox" value="orange" class="colorinput-input" />
+																	<span class="colorinput-color bg-orange"></span>
+																</label>
+															</div>
+															<div class="">
+																<label class="colorinput">
+																	<input name="color" type="checkbox" value="yellow" class="colorinput-input" />
+																	<span class="colorinput-color bg-warning"></span>
+																</label>
+															</div>
+															<div class="d-none d-sm-block">
+																<label class="colorinput">
+																	<input name="color" type="checkbox" value="lime" class="colorinput-input" />
+																	<span class="colorinput-color bg-info"></span>
+																</label>
+															</div>
+															<div class="d-none d-sm-block">
+																<label class="colorinput">
+																	<input name="color" type="checkbox" value="green" class="colorinput-input" />
+																	<span class="colorinput-color bg-success"></span>
+																</label>
+															</div>
+															<div class="d-none d-sm-block">
+																<label class="colorinput">
+																	<input name="color" type="checkbox" value="teal" class="colorinput-input" />
+																	<span class="colorinput-color bg-teal"></span>
+																</label>
+															</div>
+														</div>
+													</div>
+											
+                                {{ form_widget(form.couleur, {'attr': {'class': 'form-control'}, 'required': false}) }}
+                                {% if form_errors(form.couleur) %}
+                                    <div class="alert alert-danger">{{ form_errors(form.couleur) }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form.prix.vars.id }}">Prix</label>
+                                {{ form_widget(form.prix, {'attr': {'class': 'form-control'}, 'required': false}) }}
+                                {% if form_errors(form.prix) %}
+                                    <div class="alert alert-danger">{{ form_errors(form.prix) }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form.nb_place.vars.id }}">Nombre du place</label>
+                                {{ form_widget(form.nb_place, {'attr': {'class': 'form-control'}, 'required': false}) }}
+                                {% if form_errors(form.nb_place) %}
+                                    <div class="alert alert-danger">{{ form_errors(form.nb_place) }}</div>
+                                {% endif %}
+                            </div>
+                             
+                         {{ form_widget(form.imageFile, {
+                                'attr': {
+                                    'class': 'form-control',
+                                   
+                                    'name': 'imageFile',
+                                    'id': 'formFile'
+                                }
+                            }) }}
+
+                      
+
+                                                        <div class="form-group">
+                                    <label for="{{ form.status.vars.id }}">Status</label>
+                                    {{ form_widget(form.status, {'attr': {'class': 'form-control' ,'hidden': 'true'}, 'required': false}) }}
+                                    <div class="main-toggle main-toggle-primary on">
+                                        <span></span>
+                                    
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Create Vehicule</button>
+                            {{ form_end(form) }}
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ path('app_vehicule_index') }}" class="btn btn-secondary">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+	{{parent()}} 
+		<script>
+    $(document).ready(function () {
+        // Add click event listener to the toggle switch
+        $('.main-toggle').click(function () {
+            // Get the value of the switch
+            var value = $(this).hasClass('on') ? 0 : 1;
+
+            // Set the value of the hidden status field
+            $('#{{ form.status.vars.id }}').val(value);
+                    });
+                });
+            </script>
+	    <script>
+  function updateCouleurValue() {
+  // Get all checked checkboxes
+  const checkboxes = document.querySelectorAll('#color-checkboxes input[type="checkbox"]:checked');
+
+  // Get their values as an array
+  const colors = Array.from(checkboxes).map((checkbox) => checkbox.value);
+
+  // Join the values with a comma
+  const couleurValue = colors.join(',');
+
+  // Set the value of the hidden input
+  document.getElementById('form_couleur').value = couleurValue;
+}
+    </script>
+		<!-- INTERNAL FORM-ELEMENTS JS -->
+		{{ encore_entry_script_tags('js/form-elements') }}
+
+	
+{% endblock %}

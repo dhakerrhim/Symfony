@@ -1,0 +1,289 @@
+{% extends 'basefront.html.twig' %}
+
+{% block body %}
+
+<div class="site-mobile-menu site-navbar-target">
+		<div class="site-mobile-menu-header">
+			<div class="site-mobile-menu-close">
+				<span class="icofont-close js-menu-toggle"></span>
+			</div>
+		</div>
+		<div class="site-mobile-menu-body"></div>
+	</div>
+
+	<nav class="site-nav">
+		<div class="container ">
+			<div class="site-navigation">
+				<a href="/home" class="logo m-0">Travolta<span class="text-primary">.</span></a>
+
+				<ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
+					<li class="active"><a href="/home">Home</a></li>
+					<li class="has-children">
+						<a href="#">Services</a>
+						<ul class="dropdown">
+							<li><a href="#">Sortie</a></li>
+							<li><a href="/car">Voiture</a></li>
+							<li><a href="#">Hotels</a></li>
+							<li><a href="#">evenement</a></li>
+						</ul>
+					</li>
+				
+					<li><a  href="#">Sing In</a></li>
+					<li><a  href="#">Sing Up</a></li>
+				</ul>
+
+				<a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none light" data-toggle="collapse" data-target="#main-navbar">
+					<span></span>
+				</a>
+
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="hero" style="width: 1500px; height: 400px;" >
+	
+		<div class="container d-flex">
+			<div class="d-flex justify-content-between align-items">
+				<div class="col-lg-7">
+					<div class="intro-wrap">
+						
+
+						<div class="row">
+							<div class="col-12">
+								<form class="form" onsubmit="showDiv(); return false;">
+									<div class="row mb-5">
+										<div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-4">
+									<input class="form-control" placeholder="Destination" type="text" >
+										</div>
+									
+                                        <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-4">
+									<input class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="text">
+										</div>
+                                         <div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-4 input-group">
+                                         <i class="fe fe-calendar lh--9 op-6"></i>
+
+									<input class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="text">
+
+										</div>
+
+										
+									</div>    
+									<div class="row align-items-center">
+										<div class="col-sm-12 col-md-6 mb-3 mb-lg-0 col-lg-4">
+											<input type="submit" class="btn btn-primary btn-block" value="Search">
+										</div>
+										
+									</div>
+
+									
+								</form>
+								
+							</div>
+							
+						
+					
+				
+					
+			</div>
+			
+								</div>
+		</div>
+		<div class="container col-8">
+
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-10 col-lg-8 col-xl-4">
+
+        <div class="card" style="color: #4B515D; border-radius: 35px;">
+          <div class="card-body p-4">
+
+            <div class="d-flex">
+              <h6 id="weather-city" class="flex-grow-1">{{ city }}</h6>
+             
+            </div>
+
+            <div class="d-flex flex-column text-center mt-5 mb-4">
+              <h6 id="weather-temperature"  class="display-5 mb-0 font-weight-bold" style="color: #1C2331;"> {{ temperature }} </h6>
+              <span  class="small" style="color: #868B94"></span>
+            </div>
+
+            <div class="d-flex align-items-center">
+              <div class="flex-grow-1" style="font-size: 1rem;">
+                <div><i class="fas fa-wind fa-fw" style="color: #868B94;"></i> <span class="ms-1"> {{ description }}
+                  </span></div>
+                <div><i class="fas fa-tint fa-fw" style="color: #868B94;"></i> <span  id="weather-wind-speed" class="ms-1"> {{ windSpeed }}</span>
+                </div>
+                <div><i class="fas fa-sun fa-fw" style="color: #868B94;"></i> <span class="ms-1"> {{ humidity }} </span>
+                </div>
+              </div>
+              <div>
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu1.webp"
+                  width="100px">
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+		
+	</div>
+	</div>
+						
+				
+
+	
+			
+			
+		</div>
+	</div>
+
+	
+
+	
+	<div class="untree_co-section">
+		<div class="container">
+        <div id="results" class="container my-1 d-none">
+	<div class="row">
+		{% for vehicule in vehiculesF %}
+		<div class="col-md-4">
+			<div class="card">
+				<img src="{{ vehicule.image }}" class="card-img-top" alt="{{ vehicule.marque}}">
+				<div class="card-body">
+					<h5 class="card-title">{{ vehicule.marque }}</h5>
+					<p class="card-text">{{ vehicule.prix }} TND</p>
+					<a href="{{ vehicule.image }}" class="btn btn-primary">View Details</a>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+			
+			
+		</div>
+	</div>
+
+
+	
+	
+
+
+	<div class="site-footer">
+		<div class="inner first">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-lg-4">
+						<div class="widget">
+							<h3 class="heading">About Travolta</h3>
+							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						</div>
+						<div class="widget">
+							<ul class="list-unstyled social">
+								<li><a href="#"><span class="icon-twitter"></span></a></li>
+								<li><a href="#"><span class="icon-instagram"></span></a></li>
+								<li><a href="#"><span class="icon-facebook"></span></a></li>
+								<li><a href="#"><span class="icon-linkedin"></span></a></li>
+								<li><a href="#"><span class="icon-dribbble"></span></a></li>
+								<li><a href="#"><span class="icon-pinterest"></span></a></li>
+								<li><a href="#"><span class="icon-apple"></span></a></li>
+								<li><a href="#"><span class="icon-google"></span></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-2 pl-lg-5">
+						<div class="widget">
+							<h3 class="heading">Pages</h3>
+							<ul class="links list-unstyled">
+								<li><a href="#">Blog</a></li>
+								<li><a href="#">About</a></li>
+								<li><a href="#">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-2">
+						<div class="widget">
+							<h3 class="heading">Resources</h3>
+							<ul class="links list-unstyled">
+								<li><a href="#">Blog</a></li>
+								<li><a href="#">About</a></li>
+								<li><a href="#">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-4">
+						<div class="widget">
+							<h3 class="heading">Contact</h3>
+							<ul class="list-unstyled quick-info links">
+								<li class="email"><a href="#">mail@example.com</a></li>
+								<li class="phone"><a href="#">+1 222 212 3819</a></li>
+								<li class="address"><a href="#">43 Raymouth Rd. Baltemoer, London 3910</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="inner dark">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-md-8 mb-3 mb-md-0 mx-auto">
+						<p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co" class="link-highlight">Untree.co</a> <!-- License information: https://untree.co/license/ -->Distributed By <a href="https://themewagon.com" target="_blank" >ThemeWagon</a>
+						</p>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}} 
+
+	
+		<!-- INTERNAL JQUERY-UI JS -->
+		<script src="{{absolute_url(asset('build/plugins/jquery-ui/ui/widgets/datepicker.js'))}}"></script>
+     <script>
+	function showDiv() {
+		document.getElementById("results").classList.remove("d-none");
+		return false;
+	}
+</script>
+
+		<!-- INTERNAL JQUERY.MASKEDINPUT.JS -->
+		<script src="{{absolute_url(asset('build/plugins/jquery.maskedinput/jquery.maskedinput.js'))}}"></script>
+
+		<!-- INTERNAL SPECTURM-COLORPICKER JS -->
+		<script src="{{absolute_url(asset('build/plugins/spectrum-colorpicker/spectrum.js'))}}"></script>
+
+		<!-- INTERNAL COLOR PICKER 2 JS -->
+		<script src="{{absolute_url(asset('build/plugins/pickr-master/pickr.es5.min.js'))}}"></script>
+		{{ encore_entry_script_tags('js/picker') }}
+
+		<!-- INTERNAL ION-RANGESLIDER JS -->
+		<script src="{{absolute_url(asset('build/plugins/ion-rangeslider/js/ion.rangeSlider.min.js'))}}"></script>
+
+		<!-- SELECT2 JS -->
+		{{ encore_entry_script_tags('js/select2') }}
+
+		<!-- INTERNAL FORM-ELEMENTS JS -->
+		{{ encore_entry_script_tags('js/form-elements') }}
+
+		<!-- BOOTSTRAP-DATEPICKER JS -->
+		<script src="{{absolute_url(asset('build/plugins/bootstrap-datepicker/bootstrap-datepicker.js'))}}"></script>
+
+		<!-- INTERNAL JQUERY-DATETIMEPICKER JS  -->
+		<script src="{{absolute_url(asset('build/plugins/amazeui-datetimepicker/js/amazeui.datetimepicker.min.js'))}}"></script>
+
+		<script src="{{absolute_url(asset('build/plugins/clipboard/clipboard.min.js'))}}"></script>
+		<script src="{{absolute_url(asset('build/plugins/clipboard/clipboard.js'))}}"></script>
+{% endblock %}

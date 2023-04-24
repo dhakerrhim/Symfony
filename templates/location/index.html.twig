@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Location index{% endblock %}
+
+{% block body %}
+    <h1>Location index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Debut_location</th>
+                <th>Fin_location</th>
+                <th>Destination</th>
+                <th>Montant</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for location in locations %}
+            <tr>
+                <td>{{ location.id }}</td>
+                <td>{{ location.debutLocation ? location.debutLocation|date('Y-m-d') : '' }}</td>
+                <td>{{ location.finLocation ? location.finLocation|date('Y-m-d') : '' }}</td>
+                <td>{{ location.destination }}</td>
+                <td>{{ location.montant }}</td>
+                <td>{{ location.status }}</td>
+                <td>
+            
+                    <a href="{{path('app_location_delete',{'id':location.id})}}" class="fe fe-trash text-danger me-2"></a>
+					<a href="{{path('app_location_edit',{'id':location.id})}}" class="fe fe-edit text-info"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_location_new') }}">Create new</a>
+{% endblock %}
