@@ -40,7 +40,22 @@ class LocationRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-
+    public function countAll(): int
+    {
+        return $this->createQueryBuilder('v')
+            ->select('COUNT(v)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+    public function countByStatus(int $status): int
+    {
+        return $this->createQueryBuilder('v')
+            ->select('COUNT(v)')
+            ->where('v.status = :status')
+            ->setParameter('status', $status)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 //    /**
 //     * @return Location[] Returns an array of Location objects
 //     */

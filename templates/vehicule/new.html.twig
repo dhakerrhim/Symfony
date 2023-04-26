@@ -134,7 +134,7 @@
                                     
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Create Vehicule</button>
+                            <button type="submit" class="btn btn-primary"  onclick="not7()">Create Vehicule</button>
                             {{ form_end(form) }}
                         </form>
                     </div>
@@ -179,6 +179,11 @@
     </script>
 		<!-- INTERNAL FORM-ELEMENTS JS -->
 		{{ encore_entry_script_tags('js/form-elements') }}
+
+
+		<!--- INTERNAL NOTIFY JS -->
+		<script src="{{absolute_url(asset('build/plugins/notify/js/notifIt.js'))}}"></script>
+		<script src="{{absolute_url(asset('build/plugins/notify/js/notifit-custom.js'))}}"></script>
 
 	
 {% endblock %}

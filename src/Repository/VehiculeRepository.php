@@ -51,7 +51,30 @@ class VehiculeRepository extends ServiceEntityRepository
 
     return $query->getResult();
 }
-
+public function findAllByStatusNotEqualTo(int $status): array
+{
+    return $this->createQueryBuilder('v')
+        ->where('v.status != :status')
+        ->setParameter('status', $status)
+        ->getQuery()
+        ->getResult();
+}
+public function countAll(): int
+{
+    return $this->createQueryBuilder('v')
+        ->select('COUNT(v)')
+        ->getQuery()
+        ->getSingleScalarResult();
+}
+public function countByStatus(int $status): int
+{
+    return $this->createQueryBuilder('v')
+        ->select('COUNT(v)')
+        ->where('v.status = :status')
+        ->setParameter('status', $status)
+        ->getQuery()
+        ->getSingleScalarResult();
+}
 //    /**
 //     * @return Vehicule[] Returns an array of Vehicule objects
 //     */

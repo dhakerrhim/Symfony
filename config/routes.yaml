@@ -21,7 +21,10 @@ app_weather:
     path: /weather
     controller: App\Controller\HomeController::getWeather
     methods: GET
-
+app_back_office:
+    path: /back/office
+    controller: App\Controller\BackOfficeController::index
+    methods: GET
    
 kernel:
     resource: ../src/Kernel.php
