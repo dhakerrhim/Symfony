@@ -1,0 +1,122 @@
+{% extends 'basefront.html.twig' %}
+{% block stylesheets %}
+{{parent()}}
+
+{% endblock %}
+
+{% block body %}
+
+							<!-- PAGE HEADER -->
+							<div class="page-header">
+								<div>
+									<h2 class="main-content-title tx-24 mg-b-5">Product Details</h2>
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item"><a href="javascript:;">Vehicule</a></li>
+										<li class="breadcrumb-item active" aria-current="page">Vehicule Details</li>
+									</ol>
+								</div>
+							
+							</div>
+							<!-- END PAGE HEADER -->
+
+							<!-- ROW -->
+							<div class="row row-sm">
+								<div class="col-lg-12 col-md-12">
+									<div class="card custom-card productdesc">
+										<div class="card-body">
+											<div class="row">
+												<div class="col-xl-5 col-lg-12 col-md-12">
+													<div class="row">
+														<div class="col-xl-2 col-md-2">
+															<div class="clearfix carousel-slider">
+																<div id="thumbcarousel" class="carousel slide" data-interval="false">
+																	<div class="carousel-inner">
+																		
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-md-10 col-sm-12">
+															<div class="product-carousel my-2">
+																<div id="carousel" class="carousel slide" data-bs-ride="false">
+																	<div class="carousel-inner border">
+																		<div class="carousel-item active"><img src="{{ vehicule.image }}" alt="img" class="img-fluid mx-auto  d-block rounded-6">
+																		</div>
+																		<div class="carousel-item"> <img src="{{absolute_url(asset('build/img/pngs/sandal-1.png'))}}" alt="img" class="img-fluid mx-auto  d-block rounded-6">
+																		</div>
+																		<div class="carousel-item"> <img src="{{absolute_url(asset('build/img/pngs/sandal-4.png'))}}" alt="img" class="img-fluid mx-auto  d-block rounded-6">
+																		</div>
+																		<div class="carousel-item"> <img src="{{absolute_url(asset('build/img/pngs/sandal-2.png'))}}" alt="img" class="img-fluid mx-auto  d-block rounded-6">
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xl-7 col-lg-12 col-md-12">
+													<div class="mt-2 mb-2">
+														<h3 class=" mb-3 tx-semibold">{{ vehicule.marque }}</h3>
+															<p class="text-muted float-start me-3">
+															<span class="fa fa-star text-warning"></span>
+															<span class="fa fa-star text-warning"></span>
+															<span class="fa fa-star text-warning"></span>
+															<span class="fa fa-star text-warning"></span>
+															<span class="fas fa-star-half-alt text-warning"></span>
+														</p>
+														
+														<h5 class="mb-2 tx-semibold">Prix : <span class="text-muted me-2 ms-2"></span>{{ vehicule.prix }}  TND</h5>
+														<h6 class="mt-4 fs-16 tx-semibold">Matricule</h6>
+														<p>{{ vehicule.matricule }}</p>
+                                                        <h6 class="mt-4 fs-16 tx-semibold">Couleur</h6>
+                                                        <p>{{ vehicule.couleur }}</p>
+                                                          <h6 class="mt-4 fs-16 tx-semibold">Nombre max du place </h6>
+                                                        <p>{{ vehicule.nbPlace }}</p>
+														<div class="">
+															<span class="tx-semibold fs-16">Available :</span>
+															<span class="font-weight-normal text-success ms-2">In Stock</span>
+														</div>
+													</div>
+													<div class="row row-sm">
+														<div class="col-12 d-flex">
+															<h6 class="mt-2 fs-16 me-4 tx-semibold">Places :</h6>
+															<div class="handle-counter" id="handleCounter">
+																<button class="counter-minus btn">
+																	<i class="fas fa-minus tx-10"></i>
+																</button>
+																<input type="text" value="2">
+																<button class="counter-plus btn">
+																	<i class="fas fa-plus tx-10"></i>
+																</button>
+															</div>
+														</div>
+													</div>
+													<div class="mt-4 btn-list">
+	
+														<a href="{{ absolute_url(path('app_stripe')) }}?price={{ vehicule.prix }}&name={{ vehicule.marque }}" class="btn ripple btn-success rounded-6"><i class="fe fe-credit-card"> </i> Reserver Maintenat</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- END ROW -->
+
+							
+
+							
+
+{% endblock %}
+
+{% block javascripts %}
+	{{parent()}} 
+		<!-- SELECT2 JS -->
+		{{ encore_entry_script_tags('js/select2') }}
+
+		<!-- INTERNAL CHECK-ALL-MAIL JS -->
+		{{ encore_entry_script_tags('js/check-all-mail') }}
+
+		<!-- INTERNAL HANDLECOUNTER JS -->
+		{{ encore_entry_script_tags('js/handleCounter') }}
+{% endblock %}

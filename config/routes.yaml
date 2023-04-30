@@ -25,6 +25,10 @@ app_back_office:
     path: /back/office
     controller: App\Controller\BackOfficeController::index
     methods: GET
+app_sms:
+    path: /sms
+    controller: App\Controller\SmsApiController::sendSms
+    methods: GET
    
 kernel:
     resource: ../src/Kernel.php

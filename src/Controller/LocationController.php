@@ -23,7 +23,7 @@ class LocationController extends AbstractController
 
     #[Route('/new', name: 'app_location_new', methods: ['GET', 'POST'])]
     public function new(Request $request, LocationRepository $locationRepository): Response
-    {
+    {  
         $location = new Location();
         $form = $this->createForm(LocationType::class, $location);
         $form->handleRequest($request);
@@ -35,8 +35,7 @@ class LocationController extends AbstractController
         }
 
         return $this->renderForm('location/new.html.twig', [
-            'location' => $location,
-            'form' => $form->createView(),
+            'form' => $form,
         ]);
     }
 
